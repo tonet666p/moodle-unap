@@ -11,6 +11,7 @@ EXPOSE 443
 RUN dnf -y install \
 	httpd \
 	php
+RUN dnf clean all
 
 RUN mkdir /moodledata && chown apache:apache /moodledata
 VOLUME /moodledata/
@@ -18,5 +19,4 @@ VOLUME /moodledata/
 RUN find /var/www/html/ -type d -exec chmod -R 555 {} \; \
     && find /var/www/html/ -type f -exec chmod -R 444 {} \;
 #RUN systemctl enable --now httpd
-ENTRYPOINT ["/usr/sbin/httpd"]
-CMD ["-D","FOREGROUND"]
+ENTRYPOINT ["httpd","-D","FOREGROUND"]
