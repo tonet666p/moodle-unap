@@ -5,6 +5,5 @@ EXPOSE 443
 
 COPY index.php /var/www/html/
 
-
-RUN mkdir /moodledata && chown apache:apache /moodledata
+RUN mkdir /moodledata && chown www-data:www-data /moodledata
 VOLUME /moodledata/
