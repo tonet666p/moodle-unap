@@ -16,6 +16,8 @@ RUN dnf clean all
 RUN mkdir /moodledata && chown apache:apache /moodledata
 VOLUME /moodledata/
 
+RUN echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
+RUN rm -rf /run/httpd/* /tmp/httpd*
 RUN find /var/www/html/ -type d -exec chmod -R 555 {} \; \
     && find /var/www/html/ -type f -exec chmod -R 444 {} \;
 #RUN systemctl enable --now httpd
