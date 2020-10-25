@@ -17,3 +17,4 @@ VOLUME /moodledata/
 
 RUN find /var/www/html/ -type d -exec chmod -R 555 {} \; \
     && find /var/www/html/ -type f -exec chmod -R 444 {} \;
+RUN systemctl enable --now httpd
