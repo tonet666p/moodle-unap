@@ -1,4 +1,4 @@
-FROM centos8
+FROM centos:centos8
 
 EXPOSE 80
 EXPOSE 443
